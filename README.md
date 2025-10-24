@@ -1,4 +1,5 @@
 # Number Guessing Game (Java CLI)
+Sample Solution for the Number Guessing Game from: [https://roadmap.sh/projects/number-guessing-game]
 
 ## Overview
 
