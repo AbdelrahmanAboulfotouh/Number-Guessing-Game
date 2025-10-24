@@ -20,6 +20,8 @@ public class NumberGuessingGame
         Engine.Set_trails(difficulty_level);
         Engine.startGame();
 
+        input.close();
+
     }
 
     public static void main(String[] args)
