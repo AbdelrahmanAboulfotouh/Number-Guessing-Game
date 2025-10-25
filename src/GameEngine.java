@@ -42,6 +42,7 @@ public class GameEngine
                 scanner.next();
             }
             int guess = scanner.nextInt();
+            scanner.nextLine();
             trials--;
             attempts++;
 

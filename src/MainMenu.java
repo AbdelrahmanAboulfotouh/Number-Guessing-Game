@@ -44,6 +44,7 @@ public class MainMenu
             scanner.next();
         }
             int choice = scanner.nextInt();
+            scanner.nextLine();
             Set_level(choice);
 
         return Level;
