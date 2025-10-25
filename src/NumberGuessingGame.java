@@ -23,6 +23,11 @@ public class NumberGuessingGame
         Engine.startGame();
         
 
+        // After the game loop has concluded, retrieve and display the elapsed time.
+        long elapsedTime = Engine.getElapsedTimeInSeconds();
+        System.out.println("Congratulations! You guessed the number in " + elapsedTime + " seconds.");
+        System.out.println("--------------------------------------------------------------------------------------------");
+
     }
 
     public static void main(String[] args)
