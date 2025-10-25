@@ -19,7 +19,7 @@ public class NumberGuessingGame
         GameEngine Engine = new GameEngine(input);
         Engine.Set_trails(difficulty_level);
         Engine.startGame();
-
+        
         input.close();
 
     }
