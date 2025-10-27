@@ -32,7 +32,7 @@ public class GameEngine
         int Upper_Bound = 100;
         int numberToGuess = Generate_randome_number(Upper_Bound);
         int  attempts =0;
-
+         long startTime = System.currentTimeMillis();
 
         while (trials > 0)
         {
@@ -46,19 +46,22 @@ public class GameEngine
             trials--;
             attempts++;
 
-            if(Won(guess, numberToGuess, attempts))
+            if(Won(guess, numberToGuess, attempts, startTime))
                 break;
+
             if (trials == 0)
                 System.out.println("Out of chances! The correct number was " + numberToGuess + ".");
 
 
         }
     }
-    public boolean Won(int guess, int numberToGuess,int attempts)
+    public boolean Won(int guess, int numberToGuess,int attempts, long startTime)
     {
          if(guess == numberToGuess)
          {
-            System.out.println("Congratulations! You guessed the correct number in  " + attempts + "    attempts.");
+             long endtime = System.currentTimeMillis(); long duration = (endtime - startTime) / 1000;
+             System.out.println("Congratulations! You guessed the correct number in  " + attempts + "    attempts and " + duration + "   Seconds.");
+
             return true;
          }
         else if(guess > numberToGuess)

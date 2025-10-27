@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class NumberGuessingGame
 {
     private Scanner scanner;
@@ -27,6 +26,8 @@ public class NumberGuessingGame
 
     public static void main(String[] args)
     {
+
+
         Scanner input = new Scanner(System.in);
         NumberGuessingGame Game = new NumberGuessingGame(input);
         while(true) {
