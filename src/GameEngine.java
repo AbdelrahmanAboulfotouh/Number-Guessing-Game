@@ -48,7 +48,10 @@ public class GameEngine
 
             if(Won(guess, numberToGuess, attempts, startTime))
                 break;
-
+            if(trials == attempts )
+            {
+                suggest_hint(trials, numberToGuess);
+            }
             if (trials == 0)
                 System.out.println("Out of chances! The correct number was " + numberToGuess + ".");
 
@@ -71,5 +74,11 @@ public class GameEngine
 
         return false;
 
+    }
+    public void suggest_hint(int trials, int targetNumber)
+    {
+        int upper_bound = Math.min(targetNumber + (trials * 2),100);
+        int lower_bound = Math.max(targetNumber - (trials * 2),0);
+        System.out.println("\nHint : Number to guess is between " + lower_bound + " and " + upper_bound + ".");
     }
 }
