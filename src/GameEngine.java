@@ -3,21 +3,31 @@ import java.util.Scanner;
 public class GameEngine
 {
     private int  trials;
+    private int[] score_by_level;
+    private int level;
     private Scanner scanner;
     GameEngine(Scanner scanner)
     {
         this.scanner = scanner;
     }
-    public void Set_trails(Integer level)
+    public void set_level(int level)
     {
-        if(level == 1)
+        this.level = level;
+    }
+    private  void Set_trails()
+    {
+        if(this.level == 1)
         {
             trials = 10;
         }
-        else if(level == 2)
+        else if(this.level == 2)
             trials = 5;
-        else if(level == 3)
+        else if(this.level == 3)
             trials = 3;
+    }
+    public void Set_score_by_level(int[]score_by_level)
+    {
+        this.score_by_level = score_by_level;
     }
     public Integer Generate_randome_number(Integer upper_bound)
     {
@@ -29,6 +39,7 @@ public class GameEngine
     public void startGame()
     {
         System.out.println("Let's start the game!");
+        Set_trails();
         int Upper_Bound = 100;
         int numberToGuess = Generate_randome_number(Upper_Bound);
         int  attempts =0;
@@ -48,6 +59,7 @@ public class GameEngine
 
             if(Won(guess, numberToGuess, attempts, startTime))
                 break;
+
             if(trials == attempts )
             {
                 suggest_hint(trials, numberToGuess);
@@ -58,13 +70,22 @@ public class GameEngine
 
         }
     }
+    private void track_best_score(int attempts)
+    {
+        if(level == 1)
+            score_by_level[0] = Math.min(score_by_level[0], attempts);
+        else if(level == 2)
+            score_by_level[1] = Math.min(score_by_level[1], attempts);
+        else if(level == 3)
+            score_by_level[2] = Math.min(score_by_level[2], attempts);
+    }
     public boolean Won(int guess, int numberToGuess,int attempts, long startTime)
     {
          if(guess == numberToGuess)
          {
              long endtime = System.currentTimeMillis(); long duration = (endtime - startTime) / 1000;
              System.out.println("Congratulations! You guessed the correct number in  " + attempts + "    attempts and " + duration + "   Seconds.");
-
+             track_best_score(attempts);
             return true;
          }
         else if(guess > numberToGuess)
