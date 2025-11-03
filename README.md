@@ -153,7 +153,7 @@ This separation of concerns ensures modularity and ease of maintenance.
 
 ---
 
-## Future Improvements
+## Latest Features
 
 - Allow multiple rounds (ask player if they want to play again).
     
